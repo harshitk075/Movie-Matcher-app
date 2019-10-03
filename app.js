@@ -25,9 +25,9 @@ app.get("/infopage",(req,res)=>{
 	//i will place my api request here
 	request(url,(error,response,body)=>{
 		if(!error && response.statusCode==200){
-			var data=  JSON.parse(body);
+			var fetch=  JSON.parse(body);
 			 
-			res.render("infopage.ejs",{data:data});	
+			res.render("infopage.ejs",{fetch:fetch});	
 			//res.send(data["Search"]);
 		}
 		else{
