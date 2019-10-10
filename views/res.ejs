@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,22 +30,25 @@
 	<section class="content">
 	<div class="container mt-5">
         <div class="row justify-content-center">
-			  <% for(var i=0;i< data["Search"].length;i++){ %>
+		<% for(var i=0;i< data["Search"].length;i++){
+				
+			   if(data.Search[i].Poster!="N/A"){ %>
+			
               <div class="card movie_card">  
                <div>
 				   <img class="card-img-top size" src="<%=data.Search[i].Poster%>">
                </div>
-                <div class="card-body ">
+                <div class="card-body">
 				    <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Play Trailer"></i>
 					<h5 class="card-title justify-content-center"><%=data.Search[i].Title%></h5>
-					<h3 class="movie_info">Year Release :<%=data.Search[i].Year%></h4>
-					<h3 class="movie_info">IMDB ID :<%=data.Search[i].imdbID%></h4>
-					<h3 class="movie_info">Type :<%=data.Search[i].Type%></h4>
+					<h3 class="movie_info">Year Release :<%=data.Search[i].Year%></h3>
+					<h3 class="movie_info">IMDB ID :<%=data.Search[i].imdbID%></h3>
+					<h3 class="movie_info">Type :<%=data.Search[i].Type%></h3>
 					
                 </div>
             </div>
-              <%}
-              }%>
+              <% }
+                } %>
       </div>
     </div>
 	</section>
@@ -58,5 +62,6 @@
   		$('[data-toggle="tooltip"]').tooltip()
 	})
 	 </script>
+		<%}%>
 </body>
 </html>

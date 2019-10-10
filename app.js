@@ -2,6 +2,8 @@ var express = require('express');
 var app= express();
 var request = require('request');
 var bodyparser= require('body-parser');
+const ejsLint = require('ejs-lint');
+ejsLint("res.ejs","-d");
 
 //linking the css files to main 
 app.use(express.static("decfiles"));
