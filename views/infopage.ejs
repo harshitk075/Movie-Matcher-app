@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,13 @@
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
      </head>
     <body>
+		
+		<%if(fetch.Response=="False"){%>
+		  <h2><%= fetch.Error %></h2>
+		<% }
+		
+		else{ %>
+		
 		<div class="movie-card">
   
   <div class="container">
@@ -89,48 +97,74 @@
 
 		 
   </div>
-    
-	  <!-- Rating cards -->
+    	
+	     		 <!-- Rating cards -->
+	<% var len= fetch.Ratings.length
+	   var x=0 %>
    <div class="d-flex justify-content-around">
 	   <div class="card-container">
+		<h2>IMDB Rating</h2>
   <div class="card">
     <div class="front">
-      <span class="fa fa-user"></span>
+		<i class="fab fa-imdb icon-large"></i>
     </div>
-    <div class="back">User</div>
+	 
+	  <% if(x<len && fetch.Ratings[x].Source=="Internet Movie Database"){%>
+        <div class="back"><%=fetch.Ratings[x].Value %></div>
+	 <%  x++ }
+	  else{ %>
+	    <div class="back">N/A</div>
+	 <% } %>
   </div>
 </div>
+	   
 <div class="card-container">
+	<h2>Rotten Tomatoes</h2>
   <div class="card">
     <div class="front">
-      <span class="fa fa-cogs"></span>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Rotten_Tomatoes.svg/1024px-Rotten_Tomatoes.svg.png" id="tomatoes">
     </div>
-    <div class="back">Settings</div>
+    <%if(x<len && fetch.Ratings[x].Source=="Rotten Tomatoes"){%>
+        <div class="back"><%=fetch.Ratings[x].Value%></div>
+	 <%  x++}
+	  else{%>
+	    <div class="back">N/A</div>
+	 <% } %>
   </div>
 </div>
+	   
 <div class="card-container">
+	<h2 class="pb-4">Metascore</h2>
   <div class="card">
     <div class="front">
-      <span class="fa fa-code"></span>
+      <i class="far fa-star"></i>
     </div>
-    <div class="back">Code</div>
+	   <%if(x<len && fetch.Ratings[x].Source=="Metacritic"){%>
+        <div class="back"><%=fetch.Ratings[x].Value%></div>
+	 <% x++ }
+	  else{%>
+	    <div class="back">N/A</div>
+	 <% } %>
   </div>
 </div>
 	   
    </div>
+		 
 	  
   </div> <!-- end column2 -->
-	   
+			   
     </div> <!-- end description -->
-    
    
   </div> <!-- end container -->
+   	
 </div> <!-- end movie-card -->
 		
-		
+
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+		
+		<%}%>
 		
 </body>
 </html>
