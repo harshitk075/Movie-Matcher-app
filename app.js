@@ -3,6 +3,7 @@ var app= express();
 var request = require('request');
 var bodyparser= require('body-parser');
 const ejsLint = require('ejs-lint');
+
 ejsLint("res.ejs","-d");
 
 //linking the css files to main 
@@ -59,8 +60,11 @@ app.get("/movie",(req,res)=>{
 });
 
 
+//google login
 
 app.listen(1111,()=>{
 	console.log("server started");
 });
+
+
 

@@ -384,3 +384,8 @@ a[data-tooltip][data-placement="top"]::after {
 	height: 95px;
     width: 95px;
 }
+
+#txt{
+	font-family: 'McLaren', cursive;
+	color:black;
+}
