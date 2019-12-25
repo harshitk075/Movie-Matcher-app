@@ -5,6 +5,8 @@ var bodyparser= require('body-parser');
 const ejsLint = require('ejs-lint');
 
 ejsLint("res.ejs","-d");
+ejsLint("page.ejs","-d");
+ejsLint("infopage.ejs","-d");
 
 //linking the css files to main 
 app.use(express.static("decfiles"));
@@ -60,7 +62,7 @@ app.get("/movie",(req,res)=>{
 });
 
 
-//google login
+
 
 app.listen(1111,()=>{
 	console.log("server started");
