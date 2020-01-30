@@ -64,7 +64,7 @@ app.get("/movie",(req,res)=>{
 
 
 
-app.listen(1111,()=>{
+app.listen(process.env.PORT,()=>{
 	console.log("server started");
 });
 
