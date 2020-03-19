@@ -11,10 +11,20 @@
 		<link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    </head>
-    <body>
-		
-		<% if(data.Response=="False"){ %>
+       <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- style for video modal	 -->
+ <style>
+    .modal-content iframe{
+        margin: 0 auto;
+        display: block;
+    }
+</style>
+</head>
+<body>
+  <% if(data.Response=="False"){ %>
   <h1>
 	  <%= data.Error%>
   </h1>
@@ -25,6 +35,7 @@
        <h1 class="display-4 mb-3"><span id="font2">Results matching your search</span></h1>
        <!-- <p class="lead"></p> -->
        <hr class="my-1">
+	   <a href="/" class="btn btn-lg btn-primary mt-3" role="button" style="border-radius: 12px;">GO back to Home          Page</a>
     </div>
 		
 	<section class="content">
@@ -40,13 +51,14 @@
                </div>
                  <div class="card-body">
 					 <div class="pb-5">
-					   <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Play Trailer"></i>
+						 <!--  -->
+					  <i class="fas fa-play play_button mybtn" data-placement="bottom" 
+						title="Play Trailer" value=" <%= data.Search[i].Title%>  <%=data.Search[i].Year%> trailer" data-toggle="modal" data-target="#myModal" data-toggle2="tooltip"></i>
 					   <h5 class="card-title justify-content-center"><span id="font"><%=data.Search[i].Title%></span></h5>
 					 </div>
 					<h3 class="movie_info sizing">Year Release :<%=data.Search[i].Year%></h3>
 					<h3 class="movie_info">IMDB ID :<%=data.Search[i].imdbID%></h3>
 					<h3 class="movie_info">Type :<%=data.Search[i].Type%></h3>
-					
                  </div>
             </div>
               <% }
@@ -54,16 +66,30 @@
       </div>
     </div>
 	</section>
-		
-     	
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!-- videoplayer modal   -->
+<!-- Modal -->
+  <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+					<h4 class="modal-title">YouTube Video</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <iframe id="cartoonVideo" width="750" height="450" src=""                                  frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- end of modal	 -->
+	
 	 <script>
 		$(function () {
-  		$('[data-toggle="tooltip"]').tooltip()
-	})
-	 </script>
-		<%}%>
+  		$('[data-toggle2="tooltip"]').tooltip()
+	   })
+    </script>
+  <%}%>
+  <!-- script for video player -->
+  <script src="videoplayer.js"></script>
 </body>
 </html>

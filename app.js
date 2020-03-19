@@ -41,6 +41,8 @@ app.get("/infopage",(req,res)=>{
 	});
 });
 
+
+// make an array to store video trailer IDS to be renderd
 app.get("/movie",(req,res)=>{
 	var x= req.query.k;
 	var y= req.query.t;
@@ -51,7 +53,7 @@ app.get("/movie",(req,res)=>{
 	request(url,(error,response,body)=>{
 		if(!error && response.statusCode==200){
 			var data=  JSON.parse(body);
-			 
+		
 			res.render("res.ejs",{data:data});	
 			//res.send(data["Search"]);
 		}
@@ -63,8 +65,8 @@ app.get("/movie",(req,res)=>{
 
 
 
-
-app.listen(process.env.PORT,()=>{
+app.listen(1112,()=>{
+	console.log("server started");
 });
 
 
