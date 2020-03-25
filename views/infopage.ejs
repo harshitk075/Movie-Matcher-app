@@ -58,6 +58,9 @@
         <span class="tag">action</span>
         <span class="tag">fantasy</span>
         <span class="tag">adventure</span>
+		<div class="mt-4">
+			<button class="btn btn-lg btn-info" style="border-radius: 12px;" onclick="history.go(-1);"><i                       class="fas fa-angle-double-left"></i> BACK</button>
+        </div>
       </div> <!-- end column1 -->
       
   <div class="column2">
@@ -95,11 +98,10 @@
     <div class="example">
 		<span class="hover hover-3"><span id="txt">Awards:<%=fetch.Awards%></span></span>
     </div>
-
 		 
   </div>
-    	
-	     		 <!-- Rating cards -->
+ 	
+	<!-- Rating cards -->
 	<% var len= fetch.Ratings.length
 	   var x=0 %>
    <div class="d-flex justify-content-around">
@@ -150,8 +152,7 @@
 </div>
 	   
    </div>
-		 
-	  
+		   
   </div> <!-- end column2 -->
 			   
     </div> <!-- end description -->

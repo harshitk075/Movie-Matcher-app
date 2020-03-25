@@ -7,7 +7,7 @@ $(function() {
     var Q=clicked_button.attr("value");
 	 $.ajax({
         type: 'GET',
-url:"https://www.googleapis.com/youtube/v3/search"+"?"+"part=snippet&maxResults=1&order=viewcount&type=video&videoDefinition=any&q="+Q+"&key=AIzaSyBb_Ik7jh5q1HPNHgRa1w_9_alqo-JoHTw",
+url:"https://www.googleapis.com/youtube/v3/search"+"?"+"part=snippet&maxResults=1&order=relevance&type=video&videoDefinition=any&q="+Q+"&key=AIzaSyBb_Ik7jh5q1HPNHgRa1w_9_alqo-JoHTw",
 		 dataType: 'json',
         success: function(datavideo){
             embedVideo(datavideo);

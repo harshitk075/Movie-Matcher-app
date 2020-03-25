@@ -41,8 +41,25 @@ app.get("/infopage",(req,res)=>{
 	});
 });
 
+//url to redirect from res page to info page with data
+app.get("/explore",(req,res)=>{
+    var a= req.query.title;
+	//console.log(a);
+	var url= "http://omdbapi.com/?t="+a+"&apikey=thewdb";
+	//i will place my api request here
+	request(url,(error,response,body)=>{
+		if(!error && response.statusCode==200){
+			var fetch=  JSON.parse(body);
+			 
+			res.render("infopage.ejs",{fetch:fetch});	
+			//res.send(data["Search"]);
+		}
+		else{
+			res.send("Check FoR ErrOR");
+     }
+	});
+});
 
-// make an array to store video trailer IDS to be renderd
 app.get("/movie",(req,res)=>{
 	var x= req.query.k;
 	var y= req.query.t;

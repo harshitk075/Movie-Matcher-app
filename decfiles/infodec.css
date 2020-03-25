@@ -144,6 +144,13 @@ a:hover {
   float: left;
 }
 
+.column3 {
+  padding-left: 50px;
+  padding-top: 150px;
+  width: 220px;
+  float: right;
+  text-align: center;
+}
 
 fieldset, label {
   margin: 0;
