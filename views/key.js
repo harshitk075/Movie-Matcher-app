@@ -1,1 +1,0 @@
-module.exports = "AIzaSyCHxLxa_74s702L2C8J7aeA4XmJ_1i-Suc" ;
