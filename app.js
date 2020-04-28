@@ -10,7 +10,6 @@ ejsLint("infopage.ejs","-d");
 
 //linking the css files to main 
 app.use(express.static("decfiles"));
-
 //making our routes
 app.get("/",(req,res)=>{
 	res.render("page.ejs");
@@ -82,9 +81,10 @@ app.get("/movie",(req,res)=>{
 
 
 
-app.listen(process.env.PORT,()=>{
+app.listen(1112,()=>{
 	console.log("server started");
 });
 
 
 
+//process.env.PORT

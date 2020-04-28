@@ -1,5 +1,4 @@
 var tags= document.getElementsByClassName('mybtn');
-var API_KEY= require('./views/key.js');
 
 $(function() {
   $(".mybtn").on("click", function(evt) {
@@ -7,7 +6,7 @@ $(function() {
     var Q=clicked_button.attr("value");
 	 $.ajax({
         type: 'GET',
-url:"https://www.googleapis.com/youtube/v3/search"+"?"+"part=snippet&maxResults=1&order=relevance&type=video&videoDefinition=any&q="+Q+"&key="+API_KEY,
+url:"https://www.googleapis.com/youtube/v3/search"+"?"+"part=snippet&maxResults=1&order=relevance&type=video&videoDefinition=any&q="+Q+"&key="+"AIzaSyCHxLxa_74s702L2C8J7aeA4XmJ_1i-Suc",
 		 dataType: 'json',
         success: function(datavideo){
             embedVideo(datavideo);
