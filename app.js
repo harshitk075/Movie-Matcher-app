@@ -13,6 +13,7 @@ app.use(express.static("decfiles"));
 //making our routes
 app.get("/",(req,res)=>{
 	res.render("page.ejs");
+	
 });
 
 app.get("/aboutpage",(req,res)=>{
@@ -68,7 +69,7 @@ app.get("/movie",(req,res)=>{
 	//i will place my api request here
 	request(url,(error,response,body)=>{
 		if(!error && response.statusCode==200){
-			var data=  JSON.parse(body);
+			var data= JSON.parse(body);
 		
 			res.render("res.ejs",{data:data});	
 			//res.send(data["Search"]);
@@ -79,11 +80,14 @@ app.get("/movie",(req,res)=>{
 	});
 });
 
+app.get("/show-recommendatins",(res,req)=>{
+	
+});
 
-
-app.listen(process.env.PORT,()=>{
+app.listen(9000,()=>{
 	console.log("server started");
 });
 
 
 
+//process.env.PORT
