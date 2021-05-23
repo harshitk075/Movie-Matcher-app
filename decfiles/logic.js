@@ -8,7 +8,7 @@ $(document).ready(function(){
     mouseY = e.pageY;
     traX = ((4 * mouseX) / 570) + 40;
     traY = ((4 * mouseY) / 570) + 50;
-    console.log(traX);
+    //console.log(traX);
     $(".title").css({"background-position": traX + "%" + traY + "%"});
   });
 });

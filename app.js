@@ -1,93 +1,106 @@
 var express = require('express');
-var app= express();
+var app = express();
 var request = require('request');
-var bodyparser= require('body-parser');
+var bodyparser = require('body-parser');
 const ejsLint = require('ejs-lint');
 
-ejsLint("res.ejs","-d");
-ejsLint("page.ejs","-d");
-ejsLint("infopage.ejs","-d");
+ejsLint("res.ejs", "-d");
+ejsLint("page.ejs", "-d");
+ejsLint("infopage.ejs", "-d");
 
 //linking the css files to main 
 app.use(express.static("decfiles"));
 //making our routes
-app.get("/",(req,res)=>{
+app.get("/", (req, res) => {
 	res.render("page.ejs");
-	
+
 });
 
-app.get("/aboutpage",(req,res)=>{
+app.get("/aboutpage", (req, res) => {
 	res.render("aboutme.ejs");
 });
 
-app.get("/infopage",(req,res)=>{
-    var a= req.query.t;
-	var b= req.query.type;
-	var c= req.query.y;
-	var d= req.query.plot;	
-	
-	var url= "http://omdbapi.com/?t="+a+"&type="+b+"&y="+c+"&plot="+d+"&apikey=thewdb";
+app.get("/infopage", (req, res) => {
+	var a = req.query.t;
+	var b = req.query.type;
+	var c = req.query.y;
+	var d = req.query.plot;
+
+	var url = "http://omdbapi.com/?t=" + a + "&type=" + b + "&y=" + c + "&plot=" + d + "&apikey=thewdb";
 	//i will place my api request here
-	request(url,(error,response,body)=>{
-		if(!error && response.statusCode==200){
-			var fetch=  JSON.parse(body);
-			 
-			res.render("infopage.ejs",{fetch:fetch});	
+	request(url, (error, response, body) => {
+		if (!error && response.statusCode == 200) {
+			var fetch = JSON.parse(body);
+
+			res.render("infopage.ejs", { fetch: fetch });
 			//res.send(data["Search"]);
 		}
-		else{
+		else {
 			res.send("Check FoR ErrOR");
-     }
+		}
 	});
 });
 
 //url to redirect from res page to info page with data
-app.get("/explore",(req,res)=>{
-    var a= req.query.title;
+app.get("/explore", (req, res) => {
+	var a = req.query.title;
 	//console.log(a);
-	var url= "http://omdbapi.com/?t="+a+"&apikey=thewdb";
+	var url = "http://omdbapi.com/?t=" + a + "&apikey=thewdb";
 	//i will place my api request here
-	request(url,(error,response,body)=>{
-		if(!error && response.statusCode==200){
-			var fetch=  JSON.parse(body);
-			 
-			res.render("infopage.ejs",{fetch:fetch});	
+	request(url, (error, response, body) => {
+		if (!error && response.statusCode == 200) {
+			var fetch = JSON.parse(body);
+
+			res.render("infopage.ejs", { fetch: fetch });
 			//res.send(data["Search"]);
 		}
-		else{
+		else {
 			res.send("Check FoR ErrOR");
-     }
+		}
 	});
 });
 
-app.get("/movie",(req,res)=>{
-	var x= req.query.k;
-	var y= req.query.t;
-	var z= req.query.y;
-	
-	var url= "http://omdbapi.com/?s="+x+"&type="+y+"&y="+z+"&apikey=thewdb";
+app.get("/movie", (req, res) => {
+	var x = req.query.k;
+	var y = req.query.t;
+	var z = req.query.y;
+
+	var url = "http://omdbapi.com/?s=" + x + "&type=" + y + "&y=" + z + "&apikey=thewdb";
 	//i will place my api request here
-	request(url,(error,response,body)=>{
-		if(!error && response.statusCode==200){
-			var data= JSON.parse(body);
-		
-			res.render("res.ejs",{data:data});	
+	request(url, (error, response, body) => {
+		if (!error && response.statusCode == 200) {
+			var data = JSON.parse(body);
+			res.render("res.ejs", { data: data });
 			//res.send(data["Search"]);
 		}
-		else{
+		else {
 			res.send("Check FoR ErrOR");
-     }
+		}
 	});
 });
 
-app.get("/show-recommendatins",(res,req)=>{
-	
+//  https://movie-matcher-ml-api.herokuapp.com/
+app.get("/recommend", (req, res) => {
+	var a = req.query.movie_name;
+	var url = `https://movie-matcher-ml-api.herokuapp.com/?movie_title=${a}`;
+	//console.log(url);
+	//i will place my api request here
+	request(url, (error, response, body) => {
+		if (!error && response.statusCode == 200) {
+			var data = JSON.parse(body);
+
+			// console.log(response.statusCode);
+			//console.log(data);
+			res.render("recommended.ejs", { data: data });
+		}
+		else {
+			res.send("Check FoR ErrOR");
+		}
+	});
+	// res.render("recommended.ejs");
 });
 
-app.listen(process.env.PORT,()=>{
+app.listen(process.env.PORT, () => {
 	console.log("server started");
 });
-
-
-
 //process.env.PORT

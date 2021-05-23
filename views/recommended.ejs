@@ -1,4 +1,61 @@
-<!-- <% include partials/header%>
+<!DOCTYPE html>
+<html>
 
-<h1>Hello world</h1>
-<% include partials/footer %> -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>movie project</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="decres.css">
+    <link rel="stylesheet" href="recommend.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- style for video modal -->
+    <style>
+        .modal-content iframe {
+            margin: 0 auto;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div hidden id="spinner"></div>
+    <div class="jumbotron text-center">
+        <h1 class="display-4 mb-3"><span id="font2">Similar movie recommendations</span></h1>
+        <!-- <p class="lead"></p> -->
+        <hr class="my-1">
+        <a href="/" class="btn btn-lg btn-primary mt-3" role="button" style="border-radius: 12px;">GO back to Home
+          Page</a>
+      </div>
+
+    <section class="content">
+        <div class="container mt-5">
+            <div class="row justify-content-center" id="va">
+
+            </div>
+        </div>
+    </section>
+    <script>
+        var templist = `<%- JSON.stringify(data)%>`
+        $(function () {
+            $('[data-toggle2="tooltip"]').tooltip()
+        })
+    </script>
+    <script src="logic-recommend.js"></script>
+    <!-- script for video player -->
+    <script src="videoplayer.js"></script>
+
+
+</body>
+</html>
