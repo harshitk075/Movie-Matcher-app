@@ -9,7 +9,7 @@ var output = ``;
 
 
 //using promise all to fetch all the request at once and then render
-let requests= movies_list.map(movie => fetch(`http://www.omdbapi.com/?t=${movie}&apikey=thewdb`));
+let requests= movies_list.map(movie => fetch(`https://www.omdbapi.com/?t=${movie}&apikey=thewdb`));
 
 Promise.all(requests).then(responses =>{
     return responses;

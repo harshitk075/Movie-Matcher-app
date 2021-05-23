@@ -26,7 +26,7 @@ app.get("/infopage", (req, res) => {
 	var c = req.query.y;
 	var d = req.query.plot;
 
-	var url = "http://omdbapi.com/?t=" + a + "&type=" + b + "&y=" + c + "&plot=" + d + "&apikey=thewdb";
+	var url = "https://omdbapi.com/?t=" + a + "&type=" + b + "&y=" + c + "&plot=" + d + "&apikey=thewdb";
 	//i will place my api request here
 	request(url, (error, response, body) => {
 		if (!error && response.statusCode == 200) {
@@ -45,7 +45,7 @@ app.get("/infopage", (req, res) => {
 app.get("/explore", (req, res) => {
 	var a = req.query.title;
 	//console.log(a);
-	var url = "http://omdbapi.com/?t=" + a + "&apikey=thewdb";
+	var url = "https://omdbapi.com/?t=" + a + "&apikey=thewdb";
 	//i will place my api request here
 	request(url, (error, response, body) => {
 		if (!error && response.statusCode == 200) {
@@ -65,7 +65,7 @@ app.get("/movie", (req, res) => {
 	var y = req.query.t;
 	var z = req.query.y;
 
-	var url = "http://omdbapi.com/?s=" + x + "&type=" + y + "&y=" + z + "&apikey=thewdb";
+	var url = "https://omdbapi.com/?s=" + x + "&type=" + y + "&y=" + z + "&apikey=thewdb";
 	//i will place my api request here
 	request(url, (error, response, body) => {
 		if (!error && response.statusCode == 200) {
