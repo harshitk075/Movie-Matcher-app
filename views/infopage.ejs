@@ -1,172 +1,196 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>movie project</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="infodec.css">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-		<link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
-     </head>
-    <body>
-		
-		<%if(fetch.Response=="False"){%>
-		  <h2><%= fetch.Error %></h2>
-		<% }
-		
-		else{ %>
-		
-		<div class="movie-card">
-  
-  <div class="container">
-    
-    <a href="#"><img src="<%=fetch.Poster%>" alt="cover" class="cover" /></a>
-        
-    <div class="hero">
-            
-      <div class="details">
-      
-        <div class="title1"><%=fetch.Title%> <span><%=fetch.Rated%></span></div>
 
-        <!-- <div class="title2">The Battle of the Five Armies</div>     -->
-        
-        <fieldset class="rating">
-    <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
-    <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-    <input type="radio" id="star4" name="rating" value="4" checked /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-    <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-    <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
-    <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-    <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-    <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-    <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-    <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-  </fieldset>
-        
-        <span class="likes">109 likes</span>
-        
-      </div> <!-- end details -->
-      
-    </div> <!-- end hero -->
-    
-    <div class="description">
-      
-      <div class="column1">
-        <span class="tag">action</span>
-        <span class="tag">fantasy</span>
-        <span class="tag">adventure</span>
-		<div class="mt-4">
-			<button class="btn btn-lg btn-info" style="border-radius: 12px;" onclick="history.go(-1);"><i                       class="fas fa-angle-double-left"></i> BACK</button>
-        </div>
-      </div> <!-- end column1 -->
-      
-  <div class="column2">
-        
-	 <div id="examples">
-		 
-    <div class="example">
-		<span class="hover hover-3"><span id="txt">Genre:<%=fetch.Genre%></span></span>
-    </div>  
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>movie project</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="infodec.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=McLaren&display=swap" rel="stylesheet">
+</head>
 
-     <div class="example">
-		 <span class="hover hover-3" id="txt"><span class="">Released:<%=fetch.Released%></span></span>
-    </div> 
-		 
-	<div class="example">
-		<span class="hover hover-3"><span id="txt">Director:<%=fetch.Director%></span></span>
-    </div>
-		 
-	<div class="example">
-		<span class="hover hover-3"><span id="txt">Actors:<%=fetch.Actors%></span></span>
-    </div>
-		 
-	<div class="example">
-		<span class="hover hover-3"><span id="txt">Language:<%=fetch.Language%></span></span>
-    </div>
-		 
-	<div class="example">
-		<span class="hover hover-3"><span id="txt">Production:<%=fetch.Production%></span></span>
-    </div>
-		 
-	<div class="example">
-		<span class="hover hover-3"><span id="txt">Box-office:<%=fetch.BoxOffice%></span></span>
-    </div>
+<body>
 
-    <div class="example">
-		<span class="hover hover-3"><span id="txt">Awards:<%=fetch.Awards%></span></span>
-    </div>
-		 
-  </div>
- 	
-	<!-- Rating cards -->
-	<% var len= fetch.Ratings.length
-	   var x=0 %>
-   <div class="d-flex justify-content-around">
-	   <div class="card-container">
-		<h2>IMDB Rating</h2>
-  <div class="card">
-    <div class="front">
-		<i class="fab fa-imdb icon-large"></i>
-    </div>
-	 
-	  <% if(x<len && fetch.Ratings[x].Source=="Internet Movie Database"){%>
-        <div class="back"><%=fetch.Ratings[x].Value %></div>
-	 <%  x++ }
-	  else{ %>
-	    <div class="back">N/A</div>
-	 <% } %>
-  </div>
-</div>
-	   
-<div class="card-container">
-	<h2>Rotten Tomatoes</h2>
-  <div class="card">
-    <div class="front">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Rotten_Tomatoes.svg/1024px-Rotten_Tomatoes.svg.png" id="tomatoes">
-    </div>
-    <%if(x<len && fetch.Ratings[x].Source=="Rotten Tomatoes"){%>
-        <div class="back"><%=fetch.Ratings[x].Value%></div>
-	 <%  x++}
-	  else{%>
-	    <div class="back">N/A</div>
-	 <% } %>
-  </div>
-</div>
-	   
-<div class="card-container">
-	<h2 class="pb-4">Metascore</h2>
-  <div class="card">
-    <div class="front">
-      <i class="far fa-star"></i>
-    </div>
-	   <%if(x<len && fetch.Ratings[x].Source=="Metacritic"){%>
-        <div class="back"><%=fetch.Ratings[x].Value%></div>
-	 <% x++ }
-	  else{%>
-	    <div class="back">N/A</div>
-	 <% } %>
-  </div>
-</div>
-	   
-   </div>
-		   
-  </div> <!-- end column2 -->
-			   
-    </div> <!-- end description -->
-   
-  </div> <!-- end container -->
-   	
-</div> <!-- end movie-card -->
-		
+  <%if(fetch.Response=="False"){%>
+    <h2>
+      <%= fetch.Error %>
+    </h2>
+    <% } else{ %>
 
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-		
-		<%}%>
-		
+      <div class="movie-card">
+
+        <div class="container">
+
+          <a href="#"><img src="<%=fetch.Poster%>" alt="cover" class="cover" /></a>
+
+          <div class="hero">
+
+            <div class="details">
+
+              <div class="title1">
+                <%=fetch.Title%> <span>
+                    <%=fetch.Rated%>
+                  </span>
+              </div>
+
+              <!-- <div class="title2">The Battle of the Five Armies</div>     -->
+
+              <fieldset class="rating">
+                <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5"
+                  title="Awesome - 5 stars"></label>
+                <input type="radio" id="star4half" name="rating" value="4 and a half" /><label class="half"
+                  for="star4half" title="Pretty good - 4.5 stars"></label>
+                <input type="radio" id="star4" name="rating" value="4" checked /><label class="full" for="star4"
+                  title="Pretty good - 4 stars"></label>
+                <input type="radio" id="star3half" name="rating" value="3 and a half" /><label class="half"
+                  for="star3half" title="Meh - 3.5 stars"></label>
+                <input type="radio" id="star3" name="rating" value="3" /><label class="full" for="star3"
+                  title="Meh - 3 stars"></label>
+                <input type="radio" id="star2half" name="rating" value="2 and a half" /><label class="half"
+                  for="star2half" title="Kinda bad - 2.5 stars"></label>
+                <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2"
+                  title="Kinda bad - 2 stars"></label>
+                <input type="radio" id="star1half" name="rating" value="1 and a half" /><label class="half"
+                  for="star1half" title="Meh - 1.5 stars"></label>
+                <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1"
+                  title="Sucks big time - 1 star"></label>
+                <input type="radio" id="starhalf" name="rating" value="half" /><label class="half" for="starhalf"
+                  title="Sucks big time - 0.5 stars"></label>
+              </fieldset>
+
+              <span class="likes">109 likes</span>
+
+            </div> <!-- end details -->
+
+          </div> <!-- end hero -->
+
+          <div class="description">
+
+            <div class="column1">
+              <span class="tag">action</span>
+              <span class="tag">fantasy</span>
+              <span class="tag">adventure</span>
+              <div class="mt-4">
+                <button class="btn btn-lg btn-info" style="border-radius: 12px;" onclick="history.go(-1);"><i
+                    class="fas fa-angle-double-left"></i> BACK</button>
+              </div>
+            </div> <!-- end column1 -->
+
+            <div class="column2">
+
+              <div id="examples">
+
+                <div class="example">
+                  <span class="hover hover-3"><span id="txt">Genre:<%=fetch.Genre%></span></span>
+                </div>
+
+                <div class="example">
+                  <span class="hover hover-3" id="txt"><span class="">Released:<%=fetch.Released%></span></span>
+                </div>
+
+                <div class="example">
+                  <span class="hover hover-3"><span id="txt">Director:<%=fetch.Director%></span></span>
+                </div>
+
+                <div class="example">
+                  <span class="hover hover-3"><span id="txt">Actors:<%=fetch.Actors%></span></span>
+                </div>
+
+                <div class="example">
+                  <span class="hover hover-3"><span id="txt">Language:<%=fetch.Language%></span></span>
+                </div>
+
+                <div class="example">
+                  <span class="hover hover-3"><span id="txt">Production:<%=fetch.Production%></span></span>
+                </div>
+
+                <div class="example">
+                  <span class="hover hover-3"><span id="txt">Box-office:<%=fetch.BoxOffice%></span></span>
+                </div>
+
+                <div class="example">
+                  <span class="hover hover-3"><span id="txt">Awards:<%=fetch.Awards%></span></span>
+                </div>
+
+              </div>
+
+              <!-- Rating cards -->
+              <% var len=fetch.Ratings.length var x=0 %>
+                <div class="d-flex justify-content-around">
+                  <div class="card-container">
+                    <h2>IMDB Rating</h2>
+                    <div class="card">
+                      <div class="front">
+                        <i class="fab fa-imdb icon-large"></i>
+                      </div>
+
+                      <% if(x<len && fetch.Ratings[x].Source=="Internet Movie Database" ){%>
+                        <div class="back">
+                          <%=fetch.Ratings[x].Value %>
+                        </div>
+                        <% x++ } else{ %>
+                          <div class="back">N/A</div>
+                          <% } %>
+                    </div>
+                  </div>
+
+                  <div class="card-container">
+                    <h2>Rotten Tomatoes</h2>
+                    <div class="card">
+                      <div class="front">
+                        <img
+                          src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Rotten_Tomatoes.svg/1024px-Rotten_Tomatoes.svg.png"
+                          id="tomatoes">
+                      </div>
+                      <%if(x<len && fetch.Ratings[x].Source=="Rotten Tomatoes" ){%>
+                        <div class="back">
+                          <%=fetch.Ratings[x].Value%>
+                        </div>
+                        <% x++} else{%>
+                          <div class="back">N/A</div>
+                          <% } %>
+                    </div>
+                  </div>
+
+                  <div class="card-container">
+                    <h2 class="pb-4">Metascore</h2>
+                    <div class="card">
+                      <div class="front">
+                        <i class="far fa-star"></i>
+                      </div>
+                      <%if(x<len && fetch.Ratings[x].Source=="Metacritic" ){%>
+                        <div class="back">
+                          <%=fetch.Ratings[x].Value%>
+                        </div>
+                        <% x++ } else{%>
+                          <div class="back">N/A</div>
+                          <% } %>
+                    </div>
+                  </div>
+
+                </div>
+
+            </div> <!-- end column2 -->
+
+          </div> <!-- end description -->
+
+        </div> <!-- end container -->
+
+      </div> <!-- end movie-card -->
+
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+      <%}%>
+
 </body>
+
 </html>

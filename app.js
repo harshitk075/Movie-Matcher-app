@@ -1,14 +1,15 @@
 var express = require('express');
-var app = express();
 var request = require('request');
 var bodyparser = require('body-parser');
 const ejsLint = require('ejs-lint');
+
+var app = express();
 
 ejsLint("res.ejs", "-d");
 ejsLint("page.ejs", "-d");
 ejsLint("infopage.ejs", "-d");
 
-//linking the css files to main 
+//serve static from decfiles
 app.use(express.static("decfiles"));
 //making our routes
 app.get("/", (req, res) => {
@@ -56,7 +57,7 @@ app.get("/explore", (req, res) => {
 		}
 		else {
 			res.send("Check FoR ErrOR");
-		}
+		}	
 	});
 });
 
@@ -90,7 +91,7 @@ app.get("/recommend", (req, res) => {
 			var data = JSON.parse(body);
 
 			// console.log(response.statusCode);
-			//console.log(data);
+			//console.log(data); 
 			res.render("recommended.ejs", { data: data });
 		}
 		else {

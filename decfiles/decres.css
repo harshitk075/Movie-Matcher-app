@@ -34,7 +34,7 @@ img {
 .movie_card img{
 	border-top-left-radius: 10px;
 	border-top-right-radius: 10px;
-	height: 25rem;
+	height: 450px;
 }
 .movie_info{
 	color: #5e5c5c;
@@ -44,8 +44,9 @@ img {
 	font-size: 20px;
 }
 .card-title{
-	width: 80%;
-	height: 4rem;
+	width: 100%;
+	height: 6rem;
+	overflow: auto;
 }
 .play_button{
 	background-color: #ff3d49;
@@ -54,7 +55,7 @@ img {
 	height: 60px;
 	border-radius: 50%;
 	right: 6px;
-	bottom: 210px;
+	bottom: 425px;
 	font-size: 27px;
 	padding-left: 21px;
 	padding-top: 16px;
