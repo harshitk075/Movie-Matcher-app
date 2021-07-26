@@ -36,16 +36,33 @@
         <!-- <p class="lead"></p> -->
         <hr class="my-1">
         <a href="/" class="btn btn-lg btn-primary mt-3" role="button" style="border-radius: 12px;">GO back to Home
-          Page</a>
-      </div>
+            Page</a>
+    </div>
 
     <section class="content">
         <div class="container mt-5">
             <div class="row justify-content-center" id="va">
-
+                <!-- embed here -->
             </div>
         </div>
     </section>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title">YouTube Video</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+              <iframe id="cartoonVideo" width="750" height="450" src="" frameborder="0" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end of modal	 -->
+      
     <script>
         var templist = `<%- JSON.stringify(data)%>`
         $(function () {
@@ -58,4 +75,5 @@
 
 
 </body>
+
 </html>

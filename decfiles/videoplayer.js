@@ -1,7 +1,6 @@
-var tags = document.getElementsByClassName('mybtn');
-
-$(function () {
-    $(".mybtn").on("click", function (evt) {
+  
+$(document).ready(function () {
+    $(document).on("click", '.mybtn' ,function (evt) {
         var clicked_button = $(this);
         var Q = clicked_button.attr("value");
         var key= "AIzaSyBtdEB9TW3STSHUPqaAJDFHS-GqemVKFGY";

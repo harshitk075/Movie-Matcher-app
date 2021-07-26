@@ -1,4 +1,3 @@
-
 // templist contains the list of recommendations
 var movies_list = JSON.parse(templist).recommendations;
 //console.log(movies_list);
@@ -6,7 +5,6 @@ var pp = document.getElementById('va');
 const spinner = document.getElementById("spinner");
 spinner.removeAttribute('hidden');
 var output = ``;
-
 
 //using promise all to fetch all the request at once and then render
 let requests = movies_list.map(movie => fetch(`https://www.omdbapi.com/?t=${movie}&apikey=thewdb`));

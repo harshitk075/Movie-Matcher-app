@@ -85,7 +85,6 @@ app.get("/recommend", (req, res) => {
 	var a = req.query.movie_name;
 	var url = `https://movie-matcher-ml-api.herokuapp.com/?movie_title=${a}`;
 	//console.log(url);
-	//i will place my api request here
 	request(url, (error, response, body) => {
 		if (!error && response.statusCode == 200) {
 			var data = JSON.parse(body);
